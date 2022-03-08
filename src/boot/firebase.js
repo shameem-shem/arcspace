@@ -25,17 +25,17 @@ const analytics = getAnalytics(firebase);
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       unsubscribe();
       resolve(user);
     }, reject);
-  })
-
+  });
+};
 // "async" is optional;
 // more info on params: https://v2.quasar.dev/quasar-cli/boot-files
-// export default boot(async (/* { app, router, ... } */) => {
-//   // something to do
-//   firebase, analytics;
-// });
+export default boot(async (/* { app, router, ... } */) => {
+  // something to do
+  firebase, analytics;
+});
 
-export {firebase,analytics};
+export { firebase, analytics };
